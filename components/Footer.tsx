@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { LinkedIn, Logo, Mail } from "./icons";
+import { LinkedIn, Mail } from "./icons";
 import { nav, site } from "./site";
 
 export default function Footer() {
@@ -7,9 +8,8 @@ export default function Footer() {
     <footer className="relative border-t border-line">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <Link href="/" className="flex items-center gap-2.5">
-            <Logo className="h-8 w-8" />
-            <span className="text-lg font-semibold">IndraAstra</span>
+          <Link href="/" className="inline-block" aria-label="IndraAstra home">
+            <Image src="/logo.png" alt="IndraAstra — Faster and Smarter" width={489} height={426} className="h-auto w-36" />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
             Research-driven AI from Bengaluru — brain-inspired research meets production-grade

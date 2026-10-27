@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     siteName: "IndraAstra",
     locale: "en_IN",
     type: "website",
+    images: [{ url: "/logo.png", width: 489, height: 426, alt: "IndraAstra — Faster and Smarter" }],
   },
 };
 

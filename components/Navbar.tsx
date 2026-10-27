@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Logo } from "./icons";
 import { nav } from "./site";
 
 export default function Navbar() {
@@ -26,7 +26,7 @@ export default function Navbar() {
         }`}
       >
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Logo className="h-8 w-8" />
+          <Image src="/logo-mark.png" alt="IndraAstra logo" width={36} height={36} priority className="h-9 w-9" />
           <span className="text-[17px] font-semibold tracking-tight">
             Indra<span className="text-muted">Astra</span>
           </span>
