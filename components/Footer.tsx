@@ -6,10 +6,10 @@ import { nav, site } from "./site";
 export default function Footer() {
   return (
     <footer className="relative border-t border-line">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.5fr_1fr_1fr]">
-        <div>
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-6 py-12 sm:py-14 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="col-span-2 md:col-span-1">
           <Link href="/" className="inline-block" aria-label="IndraAstra home">
-            <Image src="/logo.png" alt="IndraAstra — Faster and Smarter" width={489} height={426} className="h-auto w-36" />
+            <Image src="/logo.png" alt="IndraAstra — Faster and Smarter" width={489} height={426} className="h-auto w-28 sm:w-36" />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
             Research-driven AI from Bengaluru — brain-inspired research meets production-grade

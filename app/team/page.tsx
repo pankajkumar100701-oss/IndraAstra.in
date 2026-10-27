@@ -15,17 +15,17 @@ const groups: Member["group"][] = ["Leadership", "Founding Engineers", "Mentor",
 
 export default function TeamPage() {
   return (
-    <div className="relative overflow-hidden pt-36 pb-24">
+    <div className="relative overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-24">
       <div className="grid-bg absolute inset-x-0 top-0 -z-10 h-[520px]" />
       <div className="absolute left-1/2 top-0 -z-10 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-bolt/20 blur-[130px]" />
 
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Our team</span>
-          <h1 className="mt-5 max-w-3xl text-5xl font-semibold tracking-[-0.03em] sm:text-6xl">
+          <h1 className="mt-5 max-w-3xl text-[2.6rem] leading-[1.05] font-semibold tracking-[-0.03em] sm:text-6xl">
             Small team. <span className="font-serif font-normal italic text-gradient">Serious</span> research.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted">
+          <p className="mt-6 max-w-2xl text-base text-muted sm:text-lg">
             Scientists and engineers from IIT (BHU), IIT Madras and industry — united by a belief that AI can be
             dramatically more efficient than it is today.
           </p>
@@ -34,7 +34,7 @@ export default function TeamPage() {
         {groups.map((g) => {
           const members = team.filter((m) => m.group === g);
           return (
-            <section key={g} className="mt-20">
+            <section key={g} className="mt-14 sm:mt-20">
               <Reveal>
                 <div className="flex items-center gap-4">
                   <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-muted">{g}</h2>
@@ -57,23 +57,23 @@ export default function TeamPage() {
         })}
 
         <Reveal>
-          <div className="mt-24 flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-white/[0.02] p-8 sm:flex-row sm:items-center">
+          <div className="mt-16 flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-white/[0.02] p-6 sm:mt-24 sm:p-8 sm:flex-row sm:items-center">
             <div>
               <h3 className="text-2xl font-semibold">Want to build with us?</h3>
               <p className="mt-2 text-muted">We&apos;re always looking for curious researchers and engineers.</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#0a66c2] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#0a66c2]/90"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a66c2] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#0a66c2]/90"
               >
                 <LinkedIn className="h-4 w-4" /> Follow on LinkedIn
               </a>
               <Link
                 href="/contact?topic=careers"
-                className="inline-flex items-center gap-2 rounded-xl border border-line px-5 py-3 text-sm font-medium transition hover:border-white/25"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-line px-5 py-3 text-sm font-medium transition hover:border-white/25"
               >
                 Get in touch <Arrow className="h-4 w-4" />
               </Link>
@@ -102,10 +102,10 @@ function LinkedInButton({ m }: { m: Member }) {
 
 function WideCard({ m }: { m: Member }) {
   return (
-    <GlowCard className="flex flex-col gap-6 p-8 sm:flex-row sm:items-center">
-      <Avatar name={m.name} size="h-20 w-20 text-2xl" />
+    <GlowCard className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:gap-6 sm:p-8">
+      <Avatar name={m.name} size="h-16 w-16 text-xl sm:h-20 sm:w-20 sm:text-2xl" />
       <div className="flex-1">
-        <h3 className="text-2xl font-semibold">{m.name}</h3>
+        <h3 className="text-xl font-semibold sm:text-2xl">{m.name}</h3>
         <p className="text-volt">{m.role}</p>
         <p className="mt-3 max-w-2xl leading-relaxed text-muted">{m.bio}</p>
       </div>

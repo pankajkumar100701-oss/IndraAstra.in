@@ -77,7 +77,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function Hero() {
   return (
-    <section id="home" className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20">
+    <section id="home" className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-28 pb-14 sm:pb-20">
       <div className="grid-bg absolute inset-0 -z-20" />
       <NeuralField className="absolute inset-0 -z-10 h-full w-full" />
       <div className="absolute left-1/2 top-[-10%] -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-bolt/20 blur-[140px]" />
@@ -88,9 +88,9 @@ function Hero() {
           <Reveal>
             <Link
               href="#research"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-line bg-white/[0.03] py-1.5 pl-2 pr-4 text-sm text-muted backdrop-blur transition hover:border-white/20"
+              className="group inline-flex max-w-full items-center gap-2.5 rounded-full border border-line bg-white/[0.03] py-1.5 pl-3 pr-4 text-xs text-muted sm:text-sm backdrop-blur transition hover:border-white/20"
             >
-              <span className="pulse-dot h-2 w-2 rounded-full bg-volt" />
+              <span className="pulse-dot h-2 w-2 shrink-0 rounded-full bg-volt" />
               <span>
                 Now building: a <span className="text-foreground">next-gen LLM architecture</span>
               </span>
@@ -99,7 +99,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={100}>
-            <h1 className="mt-8 text-5xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-7 text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.035em] sm:mt-8 sm:text-6xl lg:text-7xl">
               Intelligence,
               <br />
               engineered{" "}
@@ -110,7 +110,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={200}>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:mt-7 sm:text-lg">
               IndraAstra is a research-driven AI company from Bengaluru. We pair brain-inspired research
               with production performance engineering to give your AI{" "}
               <span className="text-foreground">lower costs, higher throughput and better accuracy.</span>
@@ -118,7 +118,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={300}>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-medium text-black shadow-[0_0_40px_-8px_rgba(124,140,255,0.6)] transition hover:bg-white/90"
@@ -132,6 +132,21 @@ function Hero() {
               >
                 See how it works
               </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={400} className="lg:hidden">
+            <div className="mt-8 grid grid-cols-3 gap-2">
+              {[
+                ["Cost", "↓", "text-gold"],
+                ["Latency", "↓", "text-volt"],
+                ["Accuracy", "↑", "text-bolt"],
+              ].map(([k, v, c]) => (
+                <div key={k} className="rounded-xl border border-line bg-white/[0.03] py-3 text-center backdrop-blur">
+                  <div className={`text-lg ${c}`}>{v}</div>
+                  <div className="mt-0.5 text-xs text-muted">{k}</div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -204,10 +219,10 @@ function MetricsCard() {
 function Marquee() {
   const items = [...keywords, ...keywords];
   return (
-    <div className="relative border-y border-line bg-white/[0.015] py-5 [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
+    <div className="relative overflow-hidden border-y border-line bg-white/[0.015] py-4 sm:py-5 [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
       <div className="animate-marquee flex w-max gap-10">
         {items.map((k, i) => (
-          <span key={i} className="flex items-center gap-10 whitespace-nowrap text-sm text-muted">
+          <span key={i} className="flex items-center gap-10 whitespace-nowrap text-xs text-muted sm:text-sm">
             {k}
             <span className="text-bolt">✦</span>
           </span>
@@ -219,20 +234,20 @@ function Marquee() {
 
 function Levers() {
   return (
-    <section id="levers" className="relative scroll-mt-24 py-28">
+    <section id="levers" className="relative scroll-mt-24 py-16 sm:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel>Three performance levers</SectionLabel>
-          <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight sm:text-5xl">
             Already running AI in production?{" "}
             <span className="text-muted">We make it cheaper, faster and sharper.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-5 md:grid-cols-3">
           {levers.map((l, i) => (
             <Reveal key={l.title} delay={i * 120}>
-              <GlowCard className="h-full p-7">
+              <GlowCard className="h-full p-6 sm:p-7">
                 <div className={`grid h-12 w-12 place-items-center rounded-xl border border-line bg-white/[0.04] ${l.accent}`}>
                   <l.icon className="h-6 w-6" />
                 </div>
@@ -256,22 +271,24 @@ function Levers() {
 
 function Process() {
   return (
-    <section className="relative py-20">
+    <section className="relative py-12 sm:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionLabel>Engagement roadmap</SectionLabel>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">From audit to impact.</h2>
+          <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl">From audit to impact.</h2>
         </Reveal>
-        <div className="relative mt-14 grid gap-8 md:grid-cols-4">
+        <div className="relative mt-10 grid gap-6 sm:mt-14 sm:gap-8 md:grid-cols-4">
           <div className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-bolt/50 to-transparent md:block" />
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 120}>
-              <div className="relative">
-                <div className="relative grid h-12 w-12 place-items-center rounded-full border border-line bg-background font-mono text-sm text-volt">
+              <div className="relative flex gap-4 md:block">
+                <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full border border-line bg-background font-mono text-sm text-volt">
                   {s.n}
                 </div>
-                <h3 className="mt-6 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
+                <div>
+                  <h3 className="mt-2.5 text-lg font-semibold md:mt-6">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted md:mt-2">{s.body}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -288,14 +305,14 @@ function About() {
     { title: "Machine Learning", body: "Rigorous optimisation, evaluation and training methods at the core of every engagement." },
   ];
   return (
-    <section id="about" className="relative scroll-mt-24 py-28">
-      <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-2">
+    <section id="about" className="relative scroll-mt-24 py-16 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:gap-14 lg:grid-cols-2">
         <Reveal>
           <SectionLabel>About IndraAstra</SectionLabel>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl">
             Where the <span className="font-serif font-normal italic text-gradient">brain</span> meets the benchmark.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
             We work across AI, computational neuroscience and machine learning with one goal: build AI
             systems that are more efficient, more reliable and more scalable. Our research informs our
             engineering — and our engineering keeps our research honest.
@@ -308,7 +325,7 @@ function About() {
         <div className="space-y-4">
           {pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 120}>
-              <GlowCard className="flex gap-5 p-6">
+              <GlowCard className="flex gap-4 p-5 sm:gap-5 sm:p-6">
                 <div className="font-mono text-sm text-bolt">0{i + 1}</div>
                 <div>
                   <h3 className="text-lg font-semibold">{p.title}</h3>
@@ -327,34 +344,34 @@ function DeckCard({ title, meta }: { title: string; meta: string }) {
   return (
     <Link
       href="/contact?topic=deck"
-      className="group flex items-center gap-3 rounded-xl border border-line bg-white/[0.03] px-4 py-3 transition hover:border-white/25"
+      className="group flex w-full items-center gap-3 rounded-xl border border-line bg-white/[0.03] px-4 py-3 transition hover:border-white/25 sm:w-auto"
     >
       <Doc className="h-5 w-5 text-gold" />
       <div>
         <div className="text-sm font-medium">{title}</div>
         <div className="text-xs text-muted">{meta} · Request access</div>
       </div>
-      <Arrow className="ml-2 h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:text-foreground" />
+      <Arrow className="ml-auto h-4 w-4 shrink-0 text-muted transition group-hover:translate-x-0.5 group-hover:text-foreground" />
     </Link>
   );
 }
 
 function Research() {
   return (
-    <section id="research" className="relative scroll-mt-24 py-20">
+    <section id="research" className="relative scroll-mt-24 py-10 sm:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-[#0d1024] via-[#090b16] to-[#120e08] p-8 sm:p-14">
+          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-[#0d1024] via-[#090b16] to-[#120e08] p-6 sm:p-14">
             <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-bolt/25 blur-[100px]" />
             <div className="absolute -bottom-32 left-10 h-72 w-72 rounded-full bg-gold/10 blur-[100px]" />
             <div className="relative grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
               <div>
                 <SectionLabel>Research · In development</SectionLabel>
-                <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+                <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl">
                   A next-generation <br className="hidden sm:block" />
                   LLM architecture.
                 </h2>
-                <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+                <p className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
                   A novel algorithm under development with a{" "}
                   <span className="text-foreground">fundamentally different information-processing paradigm</span>{" "}
                   — inspired by how biological neural systems compute, built for the economics of modern
@@ -435,15 +452,15 @@ function ArchitectureViz() {
 
 function Vision() {
   return (
-    <section id="vision" className="relative scroll-mt-24 py-32">
+    <section id="vision" className="relative scroll-mt-24 py-20 sm:py-32">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <Reveal>
           <SectionLabel>Our vision</SectionLabel>
-          <blockquote className="mt-8 text-3xl font-medium leading-snug tracking-tight sm:text-5xl sm:leading-[1.15]">
+          <blockquote className="mt-8 text-[1.75rem] font-medium leading-snug tracking-tight sm:text-5xl sm:leading-[1.15]">
             “The next leap in AI won&apos;t come from <span className="text-muted">bigger</span> models — it will
             come from <span className="font-serif font-normal italic text-gradient">smarter</span> ones.”
           </blockquote>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-muted">
+          <p className="mx-auto mt-8 max-w-2xl text-base text-muted sm:text-lg">
             Named for Indra&apos;s divine weapon, IndraAstra exists to give teams an unfair advantage: AI that
             costs less to run, responds faster and gets it right — built from India for the world.
           </p>
@@ -456,13 +473,13 @@ function Vision() {
 function TeamPreview() {
   const core = team.filter((m) => m.group !== "Interns");
   return (
-    <section className="relative py-20">
+    <section className="relative py-12 sm:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <SectionLabel>The people</SectionLabel>
-              <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-5xl">
                 Built by researchers <span className="text-muted">who ship.</span>
               </h2>
             </div>
@@ -472,14 +489,18 @@ function TeamPreview() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {core.map((m, i) => (
             <Reveal key={m.name} delay={i * 100}>
-              <GlowCard className="group h-full p-6">
-                <Avatar name={m.name} />
-                <h3 className="mt-5 font-semibold">{m.name}</h3>
-                <p className="text-sm text-volt">{m.role}</p>
-                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted">{m.bio}</p>
+              <GlowCard className="group flex h-full items-center gap-4 p-4 sm:block sm:p-6">
+                <Avatar name={m.name} size="h-12 w-12 shrink-0 text-base sm:h-14 sm:w-14 sm:text-lg" />
+                <div>
+                  <h3 className="font-semibold sm:mt-5">{m.name}</h3>
+                  <p className="text-sm text-volt">{m.role}</p>
+                  <div className="hidden sm:block">
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted">{m.bio}</p>
+                  </div>
+                </div>
               </GlowCard>
             </Reveal>
           ))}
@@ -490,7 +511,7 @@ function TeamPreview() {
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl border border-[#0a66c2]/40 bg-gradient-to-r from-[#0a66c2]/15 to-transparent p-6 transition hover:border-[#0a66c2] sm:flex-row sm:items-center"
+            className="group mt-8 flex flex-col items-start justify-between gap-4 rounded-2xl sm:mt-10 border border-[#0a66c2]/40 bg-gradient-to-r from-[#0a66c2]/15 to-transparent p-6 transition hover:border-[#0a66c2] sm:flex-row sm:items-center"
           >
             <div className="flex items-center gap-4">
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#0a66c2] text-white">
@@ -501,7 +522,7 @@ function TeamPreview() {
                 <div className="text-sm text-muted">Research updates, hiring and engineering notes.</div>
               </div>
             </div>
-            <span className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-medium text-black">
+            <span className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-black sm:w-auto sm:py-2">
               Follow <Arrow className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </span>
           </a>
@@ -513,12 +534,12 @@ function TeamPreview() {
 
 function CTA() {
   return (
-    <section className="relative px-6 pb-28 pt-12">
+    <section className="relative px-6 pb-20 pt-8 sm:pb-28 sm:pt-12">
       <Reveal>
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-line p-10 text-center sm:p-16">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-line px-6 py-12 text-center sm:p-16">
           <div className="grid-bg absolute inset-0 -z-10 opacity-60" />
           <div className="absolute left-1/2 top-0 -z-10 h-72 w-[700px] -translate-x-1/2 rounded-full bg-bolt/25 blur-[110px]" />
-          <h2 className="mx-auto max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
+          <h2 className="mx-auto max-w-3xl text-3xl font-semibold tracking-tight sm:text-6xl">
             Ready to make your AI <span className="font-serif font-normal italic text-gradient">lighter</span>?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg text-muted">{site.tagline}</p>
@@ -531,7 +552,7 @@ function CTA() {
             </Link>
             <a
               href={`mailto:${site.email}`}
-              className="inline-flex items-center justify-center rounded-xl border border-line px-6 py-3.5 font-medium transition hover:border-white/25"
+              className="inline-flex items-center justify-center break-all rounded-xl border border-line px-6 py-3.5 text-sm font-medium transition hover:border-white/25 sm:text-base"
             >
               {site.email}
             </a>

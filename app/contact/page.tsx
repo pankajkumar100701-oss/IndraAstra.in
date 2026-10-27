@@ -18,22 +18,22 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="relative overflow-hidden pt-36 pb-24">
+    <div className="relative overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-24">
       <div className="grid-bg absolute inset-x-0 top-0 -z-10 h-[520px]" />
       <div className="absolute right-0 top-10 -z-10 h-[400px] w-[600px] rounded-full bg-volt/10 blur-[130px]" />
 
-      <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-[1fr_1.15fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 sm:gap-14 lg:grid-cols-[1fr_1.15fr]">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Contact</span>
-          <h1 className="mt-5 text-5xl font-semibold tracking-[-0.03em] sm:text-6xl">
+          <h1 className="mt-5 text-[2.6rem] leading-[1.05] font-semibold tracking-[-0.03em] sm:text-6xl">
             Let&apos;s make your AI{" "}
             <span className="font-serif font-normal italic text-gradient">faster.</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg text-muted">
+          <p className="mt-6 max-w-md text-base text-muted sm:text-lg">
             Tell us about your stack and what&apos;s slowing it down. We usually reply within one business day.
           </p>
 
-          <ul className="mt-10 space-y-3">
+          <ul className="mt-8 space-y-2 sm:mt-10 sm:space-y-3">
             {channels.map((c) => {
               const inner = (
                 <>
